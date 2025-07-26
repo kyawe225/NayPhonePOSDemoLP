@@ -27,11 +27,11 @@ class DashboardController
         ELSE price 
     END) as total_earned")
         ])->get();
-        $totalSaleRevenue = Sale::join("phones", "phones.id", "=", "phone_id")->where("status", "<>", "cancelled")->sum(DB::raw(DB::raw(" SUM(CASE 
+        $totalSaleRevenue = Sale::join("phones", "phones.id", "=", "phone_id")->where("status", "<>", "cancelled")->sum(DB::raw(" CASE 
         WHEN discount_type = 'fixed_amount' THEN (price - discount_amount)
         WHEN discount_type = 'percentage' THEN ROUND((price - (price * discount_amount / 100)), 2)
         ELSE price 
-    END) as total_earned")));
+    END"));
         $sales = Sale::with("phone", "customer")->get();
         return [
             "dailyRepairs" => $dailyRepairs,
