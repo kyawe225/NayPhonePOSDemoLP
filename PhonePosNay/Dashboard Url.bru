@@ -4,18 +4,14 @@ meta {
   seq: 31
 }
 
-post {
-  url: http://localhost:8000/api/auth/register
-  body: json
-  auth: inherit
+get {
+  url: http://localhost:8000/api/dashboard
+  body: none
+  auth: bearer
 }
 
-body:json {
-  {
-    "email":"kyawzinhtet200116@gmail.com",
-    "name":"kyaw",
-    "password":"helloWorld"
-  }
+auth:bearer {
+  token: 4|PumS8LTOfpkFCPedjUmcZj9q7ITO9ZwkjfkfrKw4ed78953e
 }
 
 settings {
