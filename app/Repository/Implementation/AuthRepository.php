@@ -56,7 +56,7 @@ class AuthRepository implements IAuthRepository
             }
             
             if (Hash::check($register['password'],$user->password)) {
-                $token = $user->createToken(Str::uuid7().$user->name, expiresAt: Carbon::now("utc")->addMinutes(100));
+                $token = $user->createToken(Str::uuid7().$user->name, expiresAt: Carbon::now("utc")->addDays(env("TokenExpiry",1)));
                 return ResponseModel::Ok(
                         "Welcome $user->name!",
                     $token->plainTextToken,
