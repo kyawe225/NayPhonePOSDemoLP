@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Phone;
 
+use App\Http\Requests\ValidationHelper;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PhoneAllFilterRequest extends FormRequest
@@ -23,10 +24,10 @@ class PhoneAllFilterRequest extends FormRequest
     {
         $request = ValidationHelper::basicValidationRules();
         $request = array_merge_recursive($request, [
-            "sort:Price:HTL" => "nullable|boolean|accepted",
-            "sort:Price:LTH" => "nullable|boolean|accepted",
-            "sort:Status:A" => "nullable|boolean|accepted",
-            "sort:Status:S" => "nullable|boolean|accepted"
+            "sort:Price:HTL" => "nullable|boolean",
+            "sort:Price:LTH" => "nullable|boolean",
+            "sort:Status:A" => "nullable|boolean",
+            "sort:Status:S" => "nullable|boolean"
         ]);
         return $request;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Phone;
+namespace App\Http\Requests\Customer;
 
 use App\Http\Requests\ValidationHelper;
 use Illuminate\Foundation\Http\FormRequest;

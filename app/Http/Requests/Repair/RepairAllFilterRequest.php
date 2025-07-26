@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Phone;
+namespace App\Http\Requests\Repair;
 
 use App\Http\Requests\ValidationHelper;
 use Illuminate\Foundation\Http\FormRequest;
@@ -24,8 +24,8 @@ class RepairAllFilterRequest extends FormRequest
     {
         $request = ValidationHelper::basicValidationRules();
         $request = array_merge_recursive($request, [
-            "sort:Status:P" => "nullable|boolean|accepted",
-            "sort:Status:C" => "nullable|boolean|accepted"
+            "sort:Status:P" => "nullable|boolean",
+            "sort:Status:C" => "nullable|boolean"
         ]);
         return $request;
     }
