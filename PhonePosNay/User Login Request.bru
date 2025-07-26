@@ -1,0 +1,23 @@
+meta {
+  name: User Login Request
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8000/api/auth/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email":"kyawzinhtet200116@gmail.com",
+    "name":"kyaw",
+    "password":"helloWorld"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
