@@ -67,7 +67,7 @@ class SaleRepository implements ISaleRepository
     }
     public function get(string $id){
         try{
-            $sale = Sale::where("id",$id)->with("phone")->first();
+            $sale = Sale::where("id",$id)->with(["phone","customer"])->first();
             if($sale == null){
                 return ResponseModel::NotFound("Sale Not Found!",null);
             }
@@ -79,7 +79,7 @@ class SaleRepository implements ISaleRepository
     }
     public function all($request){
         try{
-            $sale = Sale::with("phone")->all();
+            $sale = Sale::with(["phone","customer"])->get();
             if($sale == null){
                 return ResponseModel::NotFound("Sale Not Found!",null);
             }

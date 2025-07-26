@@ -40,9 +40,6 @@ Route::group(["prefix" => "/cart", "as" => "c.", "middleware" => 'auth:sanctum']
     $request
         ->delete("delete/{id}", [CartController::class, "delete"])
         ->name("delete");
-    $request
-        ->post("check", [CartController::class, "check"])
-        ->name("delete");
 });
 
 
@@ -65,9 +62,6 @@ Route::group(["prefix" => "/customer", "as" => "cus.", "middleware" => 'auth:san
     $request
         ->delete("delete/{id}", [CustomerController::class, "delete"])
         ->name("delete");
-    $request
-        ->post("check", [CustomerController::class, "check"])
-        ->name("delete");
 });
 
 Route::group(["prefix" => "/phone", "as" => "phone.", "middleware" => 'auth:sanctum'], function ($request) {
@@ -88,9 +82,6 @@ Route::group(["prefix" => "/phone", "as" => "phone.", "middleware" => 'auth:sanc
         ->name("create");
     $request
         ->delete("delete/{id}", [PhoneController::class, "delete"])
-        ->name("delete");
-    $request
-        ->post("check", [PhoneController::class, "check"])
         ->name("delete");
 });
 
@@ -113,9 +104,6 @@ Route::group(["prefix" => "/repair", "as" => "repair.", "middleware" => 'auth:sa
     $request
         ->delete("delete/{id}", [RepairController::class, "delete"])
         ->name("delete");
-    $request
-        ->post("check", [RepairController::class, "check"])
-        ->name("delete");
 });
 
 Route::group(["prefix" => "/sale", "as" => "sale.", "middleware" => 'auth:sanctum'], function ($request) {
@@ -134,9 +122,6 @@ Route::group(["prefix" => "/sale", "as" => "sale.", "middleware" => 'auth:sanctu
     $request
         ->delete("delete/{id}", [SaleController::class, "delete"])
         ->name("delete");
-    $request
-        ->post("check", [SaleController::class, "check"])
-        ->name("delete");
 });
 
 Route::group(["prefix" => "/servicehistory", "as" => "servicehistory.", "middleware" => 'auth:sanctum'], function ($request) {
@@ -154,8 +139,5 @@ Route::group(["prefix" => "/servicehistory", "as" => "servicehistory.", "middlew
         ->name("create");
     $request
         ->delete("delete/{id}", [ServiceHisotryController::class, "delete"])
-        ->name("delete");
-    $request
-        ->post("check", [ServiceHisotryController::class, "check"])
         ->name("delete");
 });

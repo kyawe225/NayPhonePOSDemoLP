@@ -27,6 +27,18 @@ use OpenApi\Annotations as OA;
  *         type="boolean",
  *         nullable=true,
  *         description="Sort by oldest first"
+ *     ),
+ *       @OA\Property(
+ *         property="sort:Status:P",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="Sort by newest first"
+ *     ),
+ *     @OA\Property(
+ *         property="sort:Status:C",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="Sort by oldest first"
  *     )
  * )
  */

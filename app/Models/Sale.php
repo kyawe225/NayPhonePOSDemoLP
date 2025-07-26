@@ -13,4 +13,7 @@ class Sale extends Model
     public function phone(){
         return $this->belongsTo(Phone::class);
     }
+    public function customer(){
+        return $this->belongsTo(Customer::class);
+    }
 }
