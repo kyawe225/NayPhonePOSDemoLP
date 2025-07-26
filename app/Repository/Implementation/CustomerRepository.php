@@ -29,7 +29,7 @@ class CustomerRepository implements ICustomerRepository
     public function update(string $id, array $request){
         try{
             $customer = Customer::where("email",$request['email'])->where("id","<>",$id)->first();
-            if($customer == null){
+            if($customer != null){
                 return ResponseModel::BadRequest("Email is Already Registered!",null);
             }
             $customer = Customer::where("id",$id)->first();
