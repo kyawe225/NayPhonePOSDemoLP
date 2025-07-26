@@ -1,0 +1,25 @@
+meta {
+  name: Customer Filter Request copy
+  type: http
+  seq: 30
+}
+
+post {
+  url: http://localhost:8000/api/customer/filter
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: 2|bfinXsRPS22wVunyHSuIy0lo5FZzE3Z6fhjbBAVo2d4be9c5
+}
+
+body:json {
+  {
+    "search:value":"ky"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

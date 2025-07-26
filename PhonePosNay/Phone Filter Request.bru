@@ -1,0 +1,25 @@
+meta {
+  name: Phone Filter Request
+  type: http
+  seq: 29
+}
+
+post {
+  url: http://localhost:8000/api/phone/filter
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: 2|bfinXsRPS22wVunyHSuIy0lo5FZzE3Z6fhjbBAVo2d4be9c5
+}
+
+body:json {
+  {
+    "sort:oldest":true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

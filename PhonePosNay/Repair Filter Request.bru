@@ -1,0 +1,26 @@
+meta {
+  name: Repair Filter Request
+  type: http
+  seq: 28
+}
+
+post {
+  url: http://localhost:8000/api/repair/filter
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: 2|bfinXsRPS22wVunyHSuIy0lo5FZzE3Z6fhjbBAVo2d4be9c5
+}
+
+body:json {
+  {
+  //   "search:value":"xiaomi",
+    "sort:Status:P":true
+  }
+}
+
+settings {
+  encodeUrl: true
+}
