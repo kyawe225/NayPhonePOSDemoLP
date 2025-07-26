@@ -14,7 +14,7 @@ class CustomerRepository implements ICustomerRepository
     public function create(array $request){
         try{
             $customer = Customer::where("email",$request['email'])->first();
-            if($customer == null){
+            if($customer != null){
                 return ResponseModel::BadRequest("Email is Already Registered!",null);
             }
             $request['id'] = Str::uuid7();
