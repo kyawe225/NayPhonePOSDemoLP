@@ -15,6 +15,10 @@ class SaleRepository implements ISaleRepository
 {
     public function create(array $request){
         try{
+            $s= Sale::where("phone_id",$request['phone_id'])->exists();
+            if($s){
+                return ResponseModel::BadRequest("Invalid Request", null); 
+            }
             $request["id"] = Str::uuid7();
             $request["date"]=Carbon::now("utc");
             $sale = Sale::create($request); 
