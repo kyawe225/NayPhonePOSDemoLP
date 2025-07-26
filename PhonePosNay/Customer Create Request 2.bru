@@ -1,11 +1,11 @@
 meta {
-  name: Customer Update Request
+  name: Customer Create Request 2
   type: http
-  seq: 5
+  seq: 27
 }
 
-put {
-  url: http://localhost:8000/api/customer/019844c5-004c-7139-b7d4-db887a889320
+post {
+  url: http://localhost:8000/api/customer
   body: json
   auth: bearer
 }
@@ -16,9 +16,9 @@ auth:bearer {
 
 body:json {
   {
-    "email":"kyawzinhtet200116@gmail.com",
+    "email":"zingyi1331@gmail.com",
     "name":"kyaw",
-    "phone":"5544221"
+    "phone":"1234567890"
   }
 }
 
