@@ -141,3 +141,5 @@ Route::group(["prefix" => "/servicehistory", "as" => "servicehistory.", "middlew
         ->delete("delete/{id}", [ServiceHisotryController::class, "delete"])
         ->name("delete");
 });
+
+Route::get("dashboard",[DashboardController::class, "index"]);
