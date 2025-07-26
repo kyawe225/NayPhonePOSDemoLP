@@ -54,7 +54,7 @@ Route::group(["prefix" => "/customer", "as" => "cus.", "middleware" => 'auth:san
         ->get("detail/{id}", [CustomerController::class, "getDetail"])
         ->name("detial");
     $request
-        ->get("filter", [CustomerController::class, "getAllFilter"])
+        ->post("filter", [CustomerController::class, "getAllFilter"])
         ->name("filter");
     $request
         ->put("{id}", [CustomerController::class, "edit"])
@@ -78,7 +78,7 @@ Route::group(["prefix" => "/phone", "as" => "phone.", "middleware" => 'auth:sanc
         ->get("detail/{id}", [PhoneController::class, "getDetail"])
         ->name("detial");
     $request
-        ->get("filter", [PhoneController::class, "getAllFilter"])
+        ->post("filter", [PhoneController::class, "getAllFilter"])
         ->name("filter");
     $request
         ->put("{id}", [PhoneController::class, "edit"])
@@ -99,7 +99,7 @@ Route::group(["prefix" => "/repair", "as" => "repair.", "middleware" => 'auth:sa
         ->get("all", [RepairController::class, "getAll"])
         ->name("all");
     $request
-        ->get("filter", [RepairController::class, "getAllFilter"])
+        ->post("filter", [RepairController::class, "getAllFilter"])
         ->name("filter");
     $request
         ->get("detail/{id}", [RepairController::class, "getDetail"])
