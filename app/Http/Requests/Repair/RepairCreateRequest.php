@@ -26,7 +26,7 @@ class RepairCreateRequest extends FormRequest
             "phone_model"=>"required|string",
             "issue"=>"required|string",
             "cost"=>"required|integer",
-            "status"=>"required|string"
+            "status"=>"required|string|in:pending,in_progress,completed,on_hold,cancelled"
         ];
     }
 }

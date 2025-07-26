@@ -22,7 +22,7 @@ class RepairUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "status"=>"required|string"
+            "status"=>"required|string|in:pending,in_progress,completed,on_hold,cancelled"
         ];
     }
 }

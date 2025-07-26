@@ -25,7 +25,7 @@ class PhoneUpdateRequest extends FormRequest
             "brand"=>"required|string",
             "model"=>"required|string",
             "price"=>"required|integer",
-            "status"=>"required|string",
+            "status"=>"required|string|in:available,sold",
             "customer_id"=>"required|string",
             "imei"=>"required|string",
             "damage_percent"=>"nullable|integer",
