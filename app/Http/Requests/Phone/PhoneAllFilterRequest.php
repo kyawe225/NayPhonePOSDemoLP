@@ -4,7 +4,56 @@ namespace App\Http\Requests\Phone;
 
 use App\Http\Requests\ValidationHelper;
 use Illuminate\Foundation\Http\FormRequest;
+use OpenApi\Annotations as OA;
 
+/**
+ * @OA\Schema(
+ *     schema="PhoneAllFilterRequest",
+ *     type="object",
+ *     @OA\Property(
+ *         property="search:value",
+ *         type="string",
+ *         nullable=true,
+ *         description="Search value for filtering results"
+ *     ),
+ *     @OA\Property(
+ *         property="sort:newest",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="Sort by newest first"
+ *     ),
+ *     @OA\Property(
+ *         property="sort:oldest",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="Sort by oldest first"
+ *     ),
+ *     @OA\Property(
+ *         property="sort:Price:HTL",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="Sort Price Highest to Lowest"
+ *     ),
+ *     @OA\Property(
+ *         property="sort:Price:LTH",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="Sort Price Lowest to Highest"
+ *     ),
+ *      @OA\Property(
+ *         property="ssort:Status:A",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="show only status avaliable"
+ *     ),
+ *     @OA\Property(
+ *         property="sort:Status:S",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="show only status sold"
+ *     )
+ * )
+ */
 class PhoneAllFilterRequest extends FormRequest
 {
     /**

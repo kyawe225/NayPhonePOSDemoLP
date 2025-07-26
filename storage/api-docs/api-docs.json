@@ -30,6 +30,143 @@
                     }
                 }
             }
+        },
+        "/api/customer/filter": {
+            "post": {
+                "summary": "Search with filters",
+                "operationId": "4a5fc0d29f59f082b67e377b050bcba0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CustomerAllFilterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/phone/filter": {
+            "post": {
+                "summary": "Search with filters",
+                "operationId": "605a7128ffd76b56c0766d276e8f182a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PhoneAllFilterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/repair/filter": {
+            "post": {
+                "summary": "Search with filters",
+                "operationId": "1028cd40ab9b53422a8c621938f5e1e0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RepairAllFilterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CustomerAllFilterRequest": {
+                "properties": {
+                    "search:value": {
+                        "description": "Search value for filtering results",
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            },
+            "PhoneAllFilterRequest": {
+                "properties": {
+                    "search:value": {
+                        "description": "Search value for filtering results",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sort:newest": {
+                        "description": "Sort by newest first",
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "sort:oldest": {
+                        "description": "Sort by oldest first",
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "sort:Price:HTL": {
+                        "description": "Sort Price Highest to Lowest",
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "sort:Price:LTH": {
+                        "description": "Sort Price Lowest to Highest",
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "ssort:Status:A": {
+                        "description": "show only status avaliable",
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "sort:Status:S": {
+                        "description": "show only status sold",
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            },
+            "RepairAllFilterRequest": {
+                "properties": {
+                    "search:value": {
+                        "description": "Search value for filtering results",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sort:newest": {
+                        "description": "Sort by newest first",
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "sort:oldest": {
+                        "description": "Sort by oldest first",
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            }
         }
     }
 }

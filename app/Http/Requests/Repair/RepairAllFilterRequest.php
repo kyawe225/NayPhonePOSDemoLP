@@ -4,7 +4,32 @@ namespace App\Http\Requests\Repair;
 
 use App\Http\Requests\ValidationHelper;
 use Illuminate\Foundation\Http\FormRequest;
+use OpenApi\Annotations as OA;
 
+/**
+ * @OA\Schema(
+ *     schema="RepairAllFilterRequest",
+ *     type="object",
+ *     @OA\Property(
+ *         property="search:value",
+ *         type="string",
+ *         nullable=true,
+ *         description="Search value for filtering results"
+ *     ),
+ *     @OA\Property(
+ *         property="sort:newest",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="Sort by newest first"
+ *     ),
+ *     @OA\Property(
+ *         property="sort:oldest",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="Sort by oldest first"
+ *     )
+ * )
+ */
 class RepairAllFilterRequest extends FormRequest
 {
     /**

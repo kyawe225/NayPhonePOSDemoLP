@@ -19,6 +19,20 @@ class CustomerController extends Controller
     public function getAll(){
         return response()->json($this->repository->all([]));
     }
+    /**
+     * @OA\Post(
+     *     path="/api/customer/filter",
+     *     summary="Search with filters",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/CustomerAllFilterRequest")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
+     */
     public function getAllFilter(CustomerAllFilterRequest $request){
         $validated = $request->validated();
         return response()->json($this->repository->all($validated));

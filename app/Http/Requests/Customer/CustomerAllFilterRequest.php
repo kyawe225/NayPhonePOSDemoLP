@@ -4,7 +4,20 @@ namespace App\Http\Requests\Customer;
 
 use App\Http\Requests\ValidationHelper;
 use Illuminate\Foundation\Http\FormRequest;
+use OpenApi\Annotations as OA;
 
+/**
+ * @OA\Schema(
+ *     schema="CustomerAllFilterRequest",
+ *     type="object",
+ *     @OA\Property(
+ *         property="search:value",
+ *         type="string",
+ *         nullable=true,
+ *         description="Search value for filtering results"
+ *     )
+ * )
+ */
 class CustomerAllFilterRequest extends FormRequest
 {
     /**
