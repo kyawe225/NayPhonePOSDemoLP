@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\PhoneController;
 use App\Http\Controllers\Api\RepairController;
 use App\Http\Controllers\Api\SaleController;
 use App\Http\Controllers\Api\ServiceHisotryController;
+use App\Http\Controllers\Api\DashboardController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -142,4 +144,4 @@ Route::group(["prefix" => "/servicehistory", "as" => "servicehistory.", "middlew
         ->name("delete");
 });
 
-Route::get("dashboard",[DashboardController::class, "index"]);
+Route::get("dashboard",[DashboardController::class, "index"])->middleware('auth:sanctum');
