@@ -1,0 +1,35 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Hello World",
+        "version": "v1"
+    },
+    "paths": {
+        "auth/login": {
+            "post": {
+                "description": "This allow user to login for other operations.",
+                "operationId": "a597379fd9dc3026e6019a62e6617e0a",
+                "requestBody": {
+                    "description": "[\r\n    \\\"email\\\" => \\\"kyaw@gmail.com\\\",\r\n    \\\"password\\\" => \\\"**************\\\",\r\n]"
+                },
+                "responses": {
+                    "200": {
+                        "description": "[\r\n    \\\"status\\\" => 200,\r\n    \\\"message\\\" => \\\"string\\\",\r\n    \\\"data\\\" => \\\"Some Token\\\"\r\n]"
+                    }
+                }
+            }
+        },
+        "auth/register": {
+            "post": {
+                "description": "This allow user to register for other operations.",
+                "operationId": "effdb942a55dfb374b7aef97d46193f8",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "[\r\n    \\\"status\\\" => 200,\r\n    \\\"message\\\" => \\\"string\\\",\r\n    \\\"data\\\" => null\r\n]"
+                    }
+                }
+            }
+        }
+    }
+}
