@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Customer\CustomerAllFilterRequest;
 use App\Http\Requests\Customer\CustomerCreateRequest;
 use App\Http\Requests\Customer\CustomerUpdateRequest;
-use App\Http\Requests\Phone\CustomerAllFilterRequest;
 use App\Repository\Interface\ICustomerRepository;
 
 class CustomerController extends Controller

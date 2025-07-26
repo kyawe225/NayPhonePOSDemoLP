@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Phone\RepairAllFilterRequest;
+use App\Http\Requests\Repair\RepairAllFilterRequest;
 use App\Http\Requests\Repair\RepairCreateRequest;
 use App\Http\Requests\Repair\RepairUpdateRequest;
 use App\Repository\Interface\IRepairRepository;
