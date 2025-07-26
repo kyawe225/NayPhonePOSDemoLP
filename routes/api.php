@@ -24,7 +24,7 @@ Route::group(["prefix" => "/auth", "as" => "auth."], function ($request) {
         ->name("login");
 });
 
-Route::group(["prefix" => "/cart", "as" => "c."], function ($request) {
+Route::group(["prefix" => "/cart", "as" => "c.", "middleware" => 'auth:sanctum'], function ($request) {
     $request
         ->get("all", [CartController::class, "getAll"])
         ->name("all");
@@ -46,13 +46,16 @@ Route::group(["prefix" => "/cart", "as" => "c."], function ($request) {
 });
 
 
-Route::group(["prefix" => "/customer", "as" => "cus."], function ($request) {
+Route::group(["prefix" => "/customer", "as" => "cus.", "middleware" => 'auth:sanctum'], function ($request) {
     $request
         ->get("all", [CustomerController::class, "getAll"])
         ->name("all");
     $request
         ->get("detail/{id}", [CustomerController::class, "getDetail"])
         ->name("detial");
+    $request
+        ->get("filter", [CustomerController::class, "getAllFilter"])
+        ->name("filter");
     $request
         ->put("{id}", [CustomerController::class, "edit"])
         ->name("edit");
@@ -67,13 +70,16 @@ Route::group(["prefix" => "/customer", "as" => "cus."], function ($request) {
         ->name("delete");
 });
 
-Route::group(["prefix" => "/phone", "as" => "phone."], function ($request) {
+Route::group(["prefix" => "/phone", "as" => "phone.", "middleware" => 'auth:sanctum'], function ($request) {
     $request
         ->get("all", [PhoneController::class, "getAll"])
         ->name("all");
     $request
         ->get("detail/{id}", [PhoneController::class, "getDetail"])
         ->name("detial");
+    $request
+        ->get("filter", [PhoneController::class, "getAllFilter"])
+        ->name("filter");
     $request
         ->put("{id}", [PhoneController::class, "edit"])
         ->name("detial");
@@ -88,10 +94,13 @@ Route::group(["prefix" => "/phone", "as" => "phone."], function ($request) {
         ->name("delete");
 });
 
-Route::group(["prefix" => "/repair", "as" => "repair."], function ($request) {
+Route::group(["prefix" => "/repair", "as" => "repair.", "middleware" => 'auth:sanctum'], function ($request) {
     $request
         ->get("all", [RepairController::class, "getAll"])
         ->name("all");
+    $request
+        ->get("filter", [RepairController::class, "getAllFilter"])
+        ->name("filter");
     $request
         ->get("detail/{id}", [RepairController::class, "getDetail"])
         ->name("detial");
@@ -109,7 +118,7 @@ Route::group(["prefix" => "/repair", "as" => "repair."], function ($request) {
         ->name("delete");
 });
 
-Route::group(["prefix" => "/sale", "as" => "sale."], function ($request) {
+Route::group(["prefix" => "/sale", "as" => "sale.", "middleware" => 'auth:sanctum'], function ($request) {
     $request
         ->get("all", [SaleController::class, "getAll"])
         ->name("all");
@@ -130,7 +139,7 @@ Route::group(["prefix" => "/sale", "as" => "sale."], function ($request) {
         ->name("delete");
 });
 
-Route::group(["prefix" => "/servicehistory", "as" => "servicehistory."], function ($request) {
+Route::group(["prefix" => "/servicehistory", "as" => "servicehistory.", "middleware" => 'auth:sanctum'], function ($request) {
     $request
         ->get("all", [ServiceHisotryController::class, "getAll"])
         ->name("all");
