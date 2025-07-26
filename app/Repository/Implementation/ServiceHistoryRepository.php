@@ -5,6 +5,7 @@ namespace App\Repository\Implementation;
 use App\Models\ServiceHistory;
 use App\Repository\Interface\IServiceHistoryRepository;
 use App\ViewModels\ResponseModel;
+use Carbon\Carbon;
 use Exception;
 use Log;
 use Str;
@@ -23,7 +24,7 @@ class ServiceHistoryRepository implements IServiceHistoryRepository
             }
             return ResponseModel::Ok("Save Successfully!", null);
         } catch (Exception $e) {
-            Log::error("Service History Repository.Create => $e->getMessage()");
+            Log::error("Service History Repository.Create => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid request.", null);
         }
     }
@@ -40,7 +41,7 @@ class ServiceHistoryRepository implements IServiceHistoryRepository
             }
             return ResponseModel::Ok("Update Successfully!", null);
         } catch (Exception $e) {
-            Log::error("Service History Repository.Update => $e->getMessage()");
+            Log::error("Service History Repository.Update => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid request.", null);
         }
     }
@@ -54,7 +55,7 @@ class ServiceHistoryRepository implements IServiceHistoryRepository
             $serviceHistory->delete();
             return ResponseModel::Ok("Delete Success!", null);
         } catch (Exception $e) {
-            Log::error("Service History Repository.Get => $e->getMessage()");
+            Log::error("Service History Repository.Get => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid request.", null);
         }
     }
@@ -67,16 +68,16 @@ class ServiceHistoryRepository implements IServiceHistoryRepository
             }
             return ResponseModel::Ok("Fetch Success!", $serviceHistory);
         } catch (Exception $e) {
-            Log::error("Service History Repository.Get => $e->getMessage()");
+            Log::error("Service History Repository.Get => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid request.", null);
         }
     }
     public function all($request)
     {
         try {
-            return ResponseModel::Ok(ServiceHistoryRepository::all());
+            return ResponseModel::Ok("Successfully Fetch!",ServiceHistory::all());
         } catch (Exception $e) {
-            Log::error("Service History Repository.All => $e->getMessage()");
+            Log::error("Service History Repository.All => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid request.", null);
         }
     }

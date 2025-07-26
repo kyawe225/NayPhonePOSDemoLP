@@ -1,11 +1,11 @@
 meta {
-  name: Customer Create Request
+  name: Customer Update Request
   type: http
-  seq: 4
+  seq: 5
 }
 
-post {
-  url: http://localhost:8000/api/customer
+put {
+  url: http://localhost:8000/api/customer/019844c5-004c-7139-b7d4-db887a889320
   body: json
   auth: inherit
 }
@@ -14,7 +14,7 @@ body:json {
   {
     "email":"kyawzinhtet200116@gmail.com",
     "name":"kyaw",
-    "phone":"1234567890"
+    "phone":"5544221"
   }
 }
 

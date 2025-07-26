@@ -9,6 +9,7 @@ use App\ViewModels\ResponseModel;
 use Exception;
 use Log;
 use Str;
+use Carbon\Carbon;
 
 class SaleRepository implements ISaleRepository
 {
@@ -24,7 +25,7 @@ class SaleRepository implements ISaleRepository
             return ResponseModel::Ok("Sale Registered Successfully!", null);
 
         }catch(Exception $e){
-            Log::error("SaleRepository.Create => $e->getMessage()");
+            Log::error("SaleRepository.Create => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid Request.",null);
         }
     }
@@ -40,7 +41,7 @@ class SaleRepository implements ISaleRepository
             }
             return ResponseModel::Ok("Sale Updated Successfully!", null);
         }catch(Exception $e){
-            Log::error("SaleRepository.Update => $e->getMessage()");
+            Log::error("SaleRepository.Update => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid Request.",null);
         }
     }
@@ -56,31 +57,31 @@ class SaleRepository implements ISaleRepository
             }
             return ResponseModel::Ok("Sale Deleted Successfully!",null);
         }catch(Exception $e){
-            Log::error("SaleRepository.Delete => $e->getMessage()");
+            Log::error("SaleRepository.Delete => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid Request.",null);
         }
     }
     public function get(string $id){
         try{
-            $sale = Sale::where("id",$id)->first();
-            if($sale != null){
+            $sale = Sale::where("id",$id)->with("phone")->first();
+            if($sale == null){
                 return ResponseModel::NotFound("Sale Not Found!",null);
             }
             return ResponseModel::Ok("Fetch Success",$sale);
         }catch(Exception $e){
-            Log::error("SaleRepository.Get => $e->getMessage()");
+            Log::error("SaleRepository.Get => {$e->getMessage()}");
             return ResponseModel::BadRequest("Invalid Request.",null);
         }
     }
     public function all($request){
         try{
-            $sale = Sale::all();
-            if($sale != null){
+            $sale = Sale::with("phone")->all();
+            if($sale == null){
                 return ResponseModel::NotFound("Sale Not Found!",null);
             }
             return ResponseModel::Ok("Fetch Success",$sale);
         }catch(Exception $e){
-            Log::error("SaleRepository.All => $e->getMessage()");
+            Log::error("SaleRepository.All => {$e->getMessage()}");
             return ResponseModel::BadRequest("Invalid Request.",null);
         }
     }

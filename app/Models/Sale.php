@@ -8,6 +8,7 @@ class Sale extends Model
 {
     protected $table="sales";
     protected $guarded = [];
+    protected $keyType = 'string';
 
     public function phone(){
         return $this->belongsTo(Phone::class);

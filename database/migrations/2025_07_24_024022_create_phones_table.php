@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('imei');
             $table->integer("damage_percent")->default(0);
             $table->string("gift")->nullable();
-            $table->string("categroy")->nullable();
+            $table->string("category")->nullable();
             $table->unsignedBigInteger("discount_amount");
             $table->enum("discount_type",["percentage","fixed_amount"]);
             $table->timestamps();

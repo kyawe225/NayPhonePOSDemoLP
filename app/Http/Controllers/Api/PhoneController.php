@@ -16,7 +16,10 @@ class PhoneController extends Controller
     public function getDetail(string $id){
         return response()->json($this->repository->get($id));
     }
-    public function getAll(PhoneAllFilterRequest $request){
+    public function getAll(){
+        return response()->json($this->repository->all([]));
+    }
+    public function getAllFilter(PhoneAllFilterRequest $request){
         $validated = $request->validated();
         return response()->json($this->repository->all($validated));
     }
@@ -26,7 +29,7 @@ class PhoneController extends Controller
     }
     public function edit(string $id, PhoneUpdateRequest $request){
         $validated = $request->validated();
-        return response()->json($this->repository->create($validated));
+        return response()->json($this->repository->update($id,$validated));
     }
     public function delete(string $id){
         return response()->json($this->repository->delete($id));

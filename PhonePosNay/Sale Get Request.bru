@@ -1,0 +1,15 @@
+meta {
+  name: Sale Get Request
+  type: http
+  seq: 16
+}
+
+get {
+  url: http://localhost:8000/api/sale/detail/01984537-88fb-72c2-82c7-cf23e31a4778
+  body: json
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

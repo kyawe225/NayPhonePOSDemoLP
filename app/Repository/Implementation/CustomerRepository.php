@@ -66,8 +66,8 @@ class CustomerRepository implements ICustomerRepository
     public function get(string $id){
         try{
             $customer = Customer::where("id",$id)->first();
-            if ($customer != null) {
-                return ResponseModel::NotFound("Phone Not Found!", null);
+            if ($customer == null) {
+                return ResponseModel::NotFound("Customer Not Found!", null);
             }
             return ResponseModel::Ok("Fetch Success", $customer);
         }catch(Exception $e){
@@ -85,7 +85,7 @@ class CustomerRepository implements ICustomerRepository
             #endregion
 
             $customer = $customerQuery->get();
-            if ($customer != null) {
+            if ($customer == null) {
                 return ResponseModel::NotFound("Customer Not Found!", null);
             }
 

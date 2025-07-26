@@ -8,4 +8,5 @@ class ServiceHistory extends Model
 {
     protected $table = "service_history";
     protected $guarded = [];
+    protected $keyType = 'string';
 }

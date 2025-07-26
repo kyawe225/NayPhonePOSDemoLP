@@ -1,0 +1,25 @@
+meta {
+  name: Repair Create Request
+  type: http
+  seq: 19
+}
+
+post {
+  url: http://localhost:8000/api/repair
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "customer_id":"01984533-78bc-7232-882e-7f74865b019c",
+    "phone_model":"xiaomi 15",
+    "issue":"screen not open",
+    "cost":"11000",
+    "status":"Pending"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

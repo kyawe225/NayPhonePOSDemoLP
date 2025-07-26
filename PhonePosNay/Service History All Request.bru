@@ -1,0 +1,15 @@
+meta {
+  name: Service History All Request
+  type: http
+  seq: 23
+}
+
+get {
+  url: http://localhost:8000/api/servicehistory/all
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

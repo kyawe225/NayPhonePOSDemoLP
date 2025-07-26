@@ -16,9 +16,12 @@ class SaleController extends Controller
     public function getDetail(string $id){
         return response()->json($this->repository->get($id));
     }
-    public function getAll($request){
+    public function getAllFilter($request){
         $validated = $request->validated();
         return response()->json($this->repository->all($validated));
+    }
+    public function getAll(){
+        return response()->json($this->repository->all([]));
     }
     public function insert(SaleCreateRequest $request){
         $validated = $request->validated();
@@ -26,7 +29,7 @@ class SaleController extends Controller
     }
     public function edit(string $id, SaleUpdateRequest $request){
         $validated = $request->validated();
-        return response()->json($this->repository->create($validated));
+        return response()->json($this->repository->update($id,$validated));
     }
     public function delete(string $id){
         return response()->json($this->repository->delete($id));

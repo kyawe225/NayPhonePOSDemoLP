@@ -1,0 +1,29 @@
+meta {
+  name: Phone Update Request
+  type: http
+  seq: 10
+}
+
+put {
+  url: http://localhost:8000/api/phone/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "brand": "Apple",
+    "model": "iPhone 14 Pro",
+    "price": 999,
+    "customer_id": "CUST-12345",
+    "imei": "123456789012345",
+    "damage_percent": 15,
+    "gift": "Free case and screen protector",
+    "category": "smartphone",
+    "status":"helloworld"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

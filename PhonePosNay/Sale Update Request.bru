@@ -1,0 +1,23 @@
+meta {
+  name: Sale Update Request
+  type: http
+  seq: 15
+}
+
+put {
+  url: http://localhost:8000/api/sale
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "customer_id": "01984533-78bc-7232-882e-7f74865b019c",
+    "phone_id": "01984528-1bf1-705b-9df4-afa46fdf46b6",
+    "payment_method": "cash"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

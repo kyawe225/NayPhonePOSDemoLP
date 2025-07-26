@@ -8,6 +8,7 @@ class Cart extends Model
 {
     protected $table="cart";
     protected $guarded = [];
+    protected $keyType = 'string';
 
     public function phones(){
         $this->belongsTo(Phone::class);

@@ -1,0 +1,15 @@
+meta {
+  name: Repair All Request
+  type: http
+  seq: 21
+}
+
+get {
+  url: http://localhost:8000/api/repair/all
+  body: json
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

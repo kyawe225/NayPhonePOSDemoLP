@@ -1,0 +1,25 @@
+meta {
+  name: Service History Update Request
+  type: http
+  seq: 24
+}
+
+put {
+  url: http://localhost:8000/api/servicehistory/0198456e-69e4-728e-8e0d-51ef423e0eec
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "repair_id":"01984548-23ca-712c-96b6-f7efccfbcc7c",
+    "description":"Hello World",
+    "parts_used":"s Pass zombia",
+    "technician":"Nay linn maung123",
+    "date":"2025-07-26"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

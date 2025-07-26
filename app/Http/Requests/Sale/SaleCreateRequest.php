@@ -22,7 +22,7 @@ class SaleCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "customer_id"=>"required|string|exists:customers,id",
+            "customer_id"=>"required|string",
             "phone_id"=>"required|string|exists:phones,id",
             // "date"=>"required|date",
             "payment_method"=>"required|string"

@@ -33,7 +33,7 @@ class PhoneRepository implements IPhoneRepository
             return ResponseModel::Ok("Phone Registered Successfully!", null);
 
         } catch (Exception $e) {
-            Log::error("PhoneRepository.Create => $e->getMessage()");
+            Log::error("PhoneRepository.Create => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid Request.", null);
         }
     }
@@ -50,6 +50,9 @@ class PhoneRepository implements IPhoneRepository
                 return ResponseModel::BadRequest("Please Choose the new imei code.", null);
             }
             $phone = Phone::where("id", $id)->first();
+            if($phone == null){
+                return ResponseModel::NotFound("Phone Not Found!",null);
+            }
             $inserted = $phone->update($request);
 
             if (!$inserted) {
@@ -57,7 +60,7 @@ class PhoneRepository implements IPhoneRepository
             }
             return ResponseModel::Ok("Phone Updated Successfully!", null);
         } catch (Exception $e) {
-            Log::error("PhoneRepository.Update => $e->getMessage()");
+            Log::error("PhoneRepository.Update => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid Request.", null);
         }
     }
@@ -74,7 +77,7 @@ class PhoneRepository implements IPhoneRepository
             }
             return ResponseModel::Ok("Phone Deleted Successfully!", null);
         } catch (Exception $e) {
-            Log::error("PhoneRepository.Delete => $e->getMessage()");
+            Log::error("PhoneRepository.Delete => {$e->getMessage()}");
             return ResponseModel::InternalServerError("Invalid Request.", null);
         }
     }
@@ -82,12 +85,12 @@ class PhoneRepository implements IPhoneRepository
     {
         try {
             $phone = Phone::where("id", $id)->first();
-            if ($phone != null) {
+            if ($phone == null) {
                 return ResponseModel::NotFound("Phone Not Found!", null);
             }
             return ResponseModel::Ok("Fetch Success", $phone);
         } catch (Exception $e) {
-            Log::error("PhoneRepository.Get => $e->getMessage()");
+            Log::error("PhoneRepository.Get => {$e->getMessage()}");
             return ResponseModel::BadRequest("Invalid Request.", null);
         }
     }
@@ -121,13 +124,13 @@ class PhoneRepository implements IPhoneRepository
             #endregion
 
             $phone = $phoneQuery->get();
-            if ($phone != null) {
+            if ($phone == null) {
                 return ResponseModel::NotFound("Phone Not Found!", null);
             }
 
             return ResponseModel::Ok("Fetch Success", $phone);
         } catch (Exception $e) {
-            Log::error("PhoneRepository.All => $e->getMessage()");
+            Log::error("PhoneRepository.All => {$e->getMessage()}");
             return ResponseModel::BadRequest("Invalid Request.", null);
         }
     }

@@ -1,0 +1,24 @@
+meta {
+  name: Service History Create Request copy
+  type: http
+  seq: 22
+}
+
+post {
+  url: http://localhost:8000/api/servicehistory
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "repair_id":"01984548-23ca-712c-96b6-f7efccfbcc7c",
+    "description":"Hello World",
+    "parts_used":"s Pass",
+    "technician":"Nay linn maung"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -8,6 +8,7 @@ class Customer extends Model
 {
     protected $table="customers";
     protected $guarded = [];
+    protected $keyType = 'string';
 
     public function sale(){
         return $this->hasMany(Sale::class);
