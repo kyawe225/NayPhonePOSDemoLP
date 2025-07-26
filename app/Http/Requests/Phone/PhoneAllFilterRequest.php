@@ -41,7 +41,7 @@ use OpenApi\Annotations as OA;
  *         description="Sort Price Lowest to Highest"
  *     ),
  *      @OA\Property(
- *         property="ssort:Status:A",
+ *         property="sort:Status:A",
  *         type="boolean",
  *         nullable=true,
  *         description="show only status avaliable"
